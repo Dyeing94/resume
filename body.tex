@@ -1,43 +1,37 @@
 \logosection{\faGraduationCap}{教育经历}
-\datedline{\textbf{福州大学} · 建筑材料与结构工程}{\dateRange{2024.09}{2027.06}}
-\datedline{\biInfo{平均绩点}{\textbf{3.36/4.00}}}{}
-\datedline{\textbf{湖南理工大学} · 土木工程}{\dateRange{2020.09}{2024.06}}
-\datedline{\biInfo{平均绩点}{\textbf{3.23/4.00}}}{}
-
-\logosection{\faTrophy}{奖项荣誉}
-\datedline{\textbf{国家励志奖学金}}{2022.11}
-\datedline{{“高教杯”全国大学生先进成图技术与产品信息建模创新大赛}}{2022.08}
-\datedline{第三届湖南省大学生社团就业创业能力挑战赛“百强社团”}{2021.06}
-\datedline{湖南理工大学“三好学生标兵”}{2023.01}
-\datedline{福州大学中期学业三等奖学金}{2026.05}
-
-\logosection{\faFlask}{硕士学位论文}
-\datedline{\textbf{基于 LAAF-BI-PINN 的输水隧道水锤作用下安全风险评估研究}}{\dateRange{2026.01}{2027.06}}
-\datedline{\biInfo{方法}{\textbf{Python, PINN, 贝叶斯推断, K-Means, 贝叶斯网络}}}{}
-\begin{itemize}[itemsep=0.5ex, parsep=0ex]
-    \item \textbf{瞬态建模与数据构建:} 面向输水隧道水锤作用下的安全风险评估，建立多工况瞬态分析流程，完成压力、流速与结构响应数据的清洗、归一化及训练样本构建。
-    \item \textbf{LAAF-BI-PINN 方法:} 在物理信息神经网络中引入局部自适应激活函数与贝叶斯推断，将控制方程、边界条件和观测数据统一纳入损失函数，实现关键响应预测与不确定性量化。
-    \item \textbf{风险评估闭环:} 采用 K-Means 划分典型运行状态，结合贝叶斯网络开展风险推理与敏感性分析，识别关键致险因素并形成风险等级判定流程，为输水隧道安全运行提供决策依据。
-\end{itemize}
+\datedline{\textbf{福州大学} · 建筑材料与结构工程 · 硕士 · GPA \textbf{3.36/4.00}}{\dateRange{2024.09}{2027.06}}
+\datedline{\textbf{湖南理工大学} · 土木工程 · 本科 · GPA \textbf{3.23/4.00}}{\dateRange{2020.09}{2024.06}}
 
 \logosection{\faUniversity}{开源项目}
-\datedline{\textbf{\href{https://github.com/Live-GalGame/LiveGalGame}{LiveGalGame} + \href{https://github.com/Live-GalGame/narrarc}{NarrowArc}} ·\quad  2.5k stars 实时 AI 对话助手与聊天记录 RAG}{\dateRange{2025.12}{至今} }
-\datedline{\biInfo{技术栈}{\textbf{TypeScript, Python, langchain, agentic RAG}}}{}
-\begin{itemize}[itemsep=0.5ex, parsep=0ex]
-    \item \textbf{实时对话交互链路:} 设计说话人识别与双向上下文建模机制，解决多人聊天场景下单轮语义不足、回复易脱离上下文的问题；引入 RAG 检索历史关系语义，动态生成多回复候选，支撑实时多轮对话中的上下文连续性。
-    \item \textbf{Agentic 长期记忆系统:} 构建「感知 $\to$ 反思 $\to$ 记忆写入 $\to$ 历史检索」闭环，每轮对话后由 Agent 自动提炼关系动态并持久化；支撑跨会话连续交互，用户留存率提升约 25\%。
-    \item \textbf{NarrowArc（聊天记录 RAG，独立子项目）:} 针对长对话连续关系变化难检索的问题，设计时间分段 + 话题聚类双层索引结构，支持「关系动态变化」等连续性自然语言查询；RealTalk 数据集评测召回准确率 83\%，P90 延迟 < 10s。
+\datedline{\textbf{\href{https://github.com/Live-GalGame/LiveGalGame}{LiveGalGame} + \href{https://github.com/Live-GalGame/narrarc}{NarrowArc}} · 2.5k stars · 实时 AI 对话 Agent / 叙事型 RAG}{\dateRange{2025.12}{至今}}
+\datedline{\biInfo{技术栈}{\textbf{TypeScript, Python, LangGraph, Qdrant, Reranker, RAG}}}{}
+\begin{itemize}[itemsep=0.25ex, parsep=0ex]
+    \item \textbf{实时决策控制:} 将流式 ASR 增量文本收敛为 committed turn，并以「轮到用户回应 / 连续多句 / 长时沉默」三类门控决定是否触发建议；通过双路音源分离维护双方上下文，避免 partial 文本误触发和角色混淆。
+    \item \textbf{低延迟检索增强:} 采用文档 Embedding 异步预计算，在线链路按「Query Embedding $\to$ 本地 Qdrant Top 50 $\to$ Reranker Top 5 $\to$ LLM」执行；端到端 P90 控制在 \textbf{1.5s} 内，首 Token 延迟 \textbf{$<$ 900ms}。
+    \item \textbf{跨会话长期记忆:} 构建「感知 $\to$ 反思 $\to$ 记忆写入 $\to$ 历史检索」闭环，持久化关系状态和关键事件；上线前后 30 天队列对比中，7 日留存由 \textbf{32\% 提升至 40\%}。
+    \item \textbf{Agentic RAG 评测:} 为 NarrowArc 设计 Burst/TopicNode 双层索引及 planner-retriever-grader-explorer-generator 循环；在 RealTalk 50 条叙事问题上，闭环将 Phase Coverage 由 \textbf{55\% 提升至 85\%}，Fuzzy Recall 达 \textbf{78\%}，输出可回溯 evidence ids。
 \end{itemize}
 
 \datedline{\textbf{\href{https://www.date-match.online/}{DateMatch}} · AI 驱动社交匹配平台，非营利开源项目，用户规模近 20 万}{\dateRange{2026.01}{至今}}
-\datedline{\biInfo{技术栈}{\textbf{PostgreSQL, Kafka, Redis, Embedding, LLM}}}{}
-\begin{itemize}[itemsep=0.5ex, parsep=0ex]
-    \item \textbf{匹配链路:} 设计「规则筛选 $\to$ Embedding 召回 $\to$ Re-rank 粗筛 $\to$ LLM 最终决策」四阶段流水线；采用异步前置向量化设计，用户首次完成问卷时即打入 Kafka 异步计算 Embedding 并落库，Match 阶段直接查询已存储向量；候选集由全量收敛至 Top 200，单次匹配计算成本降低约 70\%，用户匹配接受率较纯规则提升 35\%。
-    \item \textbf{pgvector 检索优化:} 围绕百万级 Embedding 向量检索需求，在 PostgreSQL 中引入 pgvector IVFFlat 近似近邻索引，结合问卷标签预过滤与画像字段批量回表，解决全量向量扫描延迟高的问题；向量召回链路 P99 压缩至 80ms 以内，支撑近 20 万用户画像的在线匹配查询。
-    \item \textbf{Kafka + Redis 匹配流水线:} 使用 Kafka 将注册、画像更新、Embedding 计算、候选计算拆分为异步事件流，通过 Consumer Group 并行消费与削峰填谷支撑批量匹配任务；同时用 Redis 缓存在线状态、候选集合与近期匹配结果，并结合 TTL 降低重复计算，峰值可平滑处理 3k+/min 匹配请求，重复计算开销下降约 60\%。
+\datedline{\biInfo{技术栈}{\textbf{PostgreSQL/pgvector, Kafka, Redis, Embedding, Reranker, LLM}}}{}
+\begin{itemize}[itemsep=0.25ex, parsep=0ex]
+    \item \textbf{分层决策工作流:} 负责「规则筛选 $\to$ Embedding 召回 $\to$ Rerank 相容性粗筛 $\to$ LLM 互补性决策」四阶段链路，将 20 万用户逐层收敛至 Top 200/Top 50；相较规则 + Embedding 基线，匹配接受率由 \textbf{18\% 提升至 24\%}。
+    \item \textbf{向量召回优化:} 针对高选择性画像过滤场景选用 IVFFlat（lists=400, probes=30），结合标签预过滤与批量回表；20 万条 1024 维向量下 Recall@200 \textbf{$>$ 95\%}，召回链路 \textbf{P99 $<$ 80ms}。
+    \item \textbf{可靠性与可观测性:} 通过 Kafka Topic/Consumer Group 解耦画像、Embedding、召回和决策，配置重试与死信队列；Redis 承担候选缓存、幂等和分布式锁，并以 Prometheus + trace\_id 跟踪分阶段延迟、错误率与消费积压。
 \end{itemize}
 
-\logosection{\faCogs}{技术栈}
-\begin{itemize}[parsep=0ex, itemsep=0ex, leftmargin=*]
-    \item \textbf{编程语言:} Python，TypeScript \quad \textbf{数据库\&中间件:} PostgreSQL, Redis\quad \textbf{AI/ML:} RAG, Agent , LLM 
+\logosection{\faFlask}{科研经历}
+\datedline{\textbf{基于 LAAF-BI-PINN 的输水隧道水锤安全风险评估}}{\dateRange{2026.01}{2027.06}}
+\begin{itemize}[itemsep=0.25ex, parsep=0ex]
+    \item 将控制方程、边界条件与观测数据统一纳入 PINN 损失，引入局部自适应激活函数和贝叶斯推断，完成关键响应预测与不确定性量化。
+    \item 以 K-Means 划分运行状态，结合贝叶斯网络进行风险推理和敏感性分析，形成「响应预测 $\to$ 状态聚类 $\to$ 风险分级」闭环。
 \end{itemize}
+
+\logosection{\faCogs}{专业技能}
+\begin{itemize}[parsep=0ex, itemsep=0ex, leftmargin=*]
+    \item \textbf{Agent/LLM:} LangChain, LangGraph, RAG, Embedding/Rerank, Workflow Orchestration, Memory, Evals
+    \item \textbf{工程能力:} Python, TypeScript, PostgreSQL/pgvector, Qdrant, Redis, Kafka, Prometheus, Git
+\end{itemize}
+
+\logosection{\faTrophy}{奖项荣誉}
+\datedline{国家励志奖学金 · “高教杯”全国大学生先进成图大赛 · 校三好学生标兵 · 福州大学中期学业三等奖学金}{}

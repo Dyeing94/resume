@@ -50,12 +50,6 @@
 
 % Main document font
 \setmainfont[
-    Path = Font/,
-  Extension = .otf ,
-BoldFont=HelveticaNeueLTPro-Md,
-]{HelveticaNeueLTPro-Roman}
-
-\setmainfont[
  Path = Font/,
  Extension = .otf,
  BoldFont=HelveticaNeueLTPro-Md
@@ -66,11 +60,13 @@ BoldFont=HelveticaNeueLTPro-Md,
 \usepackage{xspace}
 
 \usepackage[
-	paperwidth=24cm, 
-        paperheight=32cm,
-        margin=1.0cm
+	a4paper,
+        top=0.9cm,
+        bottom=0.9cm,
+        left=1.2cm,
+        right=1.2cm
 ]{geometry}
-\renewcommand{\baselinestretch}{1.1} %定义行间距1.2
+\renewcommand{\baselinestretch}{1.06}
 
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -85,7 +81,7 @@ BoldFont=HelveticaNeueLTPro-Md,
   {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
   {}                           % Can be used to insert code before the heading
   [{\color{ICBlue}\titlerule}]                 % Inserts a horizontal line after the heading
-\titlespacing*{\section}{0cm}{*1.6}{*1.2}
+\titlespacing*{\section}{0cm}{*1.2}{*0.7}
 
 \titleformat{\subsection}
   {\large\raggedright}
@@ -99,7 +95,7 @@ BoldFont=HelveticaNeueLTPro-Md,
 
 
 \newcommand{\dateRange}[2]{
-    {#1 -- \makebox[\widthof{#1}][s]{#2}}
+    {#1 -- #2}
 }
 
 
@@ -110,19 +106,25 @@ BoldFont=HelveticaNeueLTPro-Md,
 
 \newcommand{\name}[1]{
   \centerline{\LARGE\bfseries{#1}}
-  \vspace{1.2ex}
+  \vspace{0.35ex}
+}
+
+\newcommand{\targetRole}[1]{
+  \centerline{\small\bfseries\color{ICBlue}{#1}}
+  \vspace{0.35ex}
 }
 
 
 \newcommand{\contactInfo}[3]{
     \centerline{
         \normalsize{
-            \faPhone\ {#1} \quad 
+            \small
+            \faPhone\ {#1} \quad
             \faEnvelope\ \href{mailto:{#2}}{#2} \quad
-            \faGithub\  \href{#3}{#3}
+            \faGithub\ \href{#3}{#3}
         }
     }
-    \vspace{0.7ex}
+    \vspace{0.25ex}
 }
 
 \newcommand{\basicContactInfo}[2]{
