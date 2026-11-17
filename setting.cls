@@ -66,8 +66,8 @@ BoldFont=HelveticaNeueLTPro-Md,
 \usepackage{xspace}
 
 \usepackage[
-	paperwidth=24cm, 
-        paperheight=32cm,
+	paperwidth=21cm, 
+        paperheight=29.7cm,
         margin=1.0cm
 ]{geometry}
 \renewcommand{\baselinestretch}{1.1} %定义行间距1.2
@@ -94,7 +94,7 @@ BoldFont=HelveticaNeueLTPro-Md,
 \titlespacing*{\subsection}{0cm}{*1}{*0.5}
 
 \newcommand{\logosection}[2]{%
-    \section{\makebox[\widthof{\faGraduationCap}][c]{\color{ICBlue}#1}\  #2}
+    \section{#2}
 }
 
 
@@ -117,9 +117,9 @@ BoldFont=HelveticaNeueLTPro-Md,
 \newcommand{\contactInfo}[3]{
     \centerline{
         \normalsize{
-            \faPhone\ {#1} \quad 
-            \faEnvelope\ \href{mailto:{#2}}{#2} \quad
-            \faGithub\  \href{#3}{#3}
+            {#1} \quad
+            \href{mailto:#2}{#2} \quad
+            \href{#3}{#3}
         }
     }
     \vspace{0.7ex}
@@ -128,8 +128,8 @@ BoldFont=HelveticaNeueLTPro-Md,
 \newcommand{\basicContactInfo}[2]{
     \centerline{
         \normalsize{
-            \faPhone\ {#1} \quad 
-            \faEnvelopeO\ \href{mailto:{#2}}{#2}
+            {#1} \quad
+            {#2}
         }
     }
     \vspace{0.7ex}
